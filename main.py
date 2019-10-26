@@ -4,7 +4,10 @@
 import numpy as np
 import cv2 as cv
 
-pathOpenCVClassifiers = "/home/renanj/.local/lib/python3.6/site-packages/cv2/data"
+# caminho com xml dos treinamentos do OpenCV. (Features de Haar)
+# pathOpenCVClassifiers = "/home/renanj/.local/lib/python3.6/site-packages/cv2/data"
+pathOpenCVClassifiers = "C:/Users/Renan/AppData/Local/Programs/Python/Python36/Lib/site-packages/cv2/data"
+
 face_classifier = cv.CascadeClassifier(pathOpenCVClassifiers+'/haarcascade_frontalface_default.xml')
 eye_classifier = cv.CascadeClassifier(pathOpenCVClassifiers+'/haarcascade_eye.xml')
 # print(type(face_classifier))
