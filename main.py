@@ -15,9 +15,16 @@ print("Lendo imagem")
 # image = cv.imread('image.jpg')
 image = cv.imread('image-small.jpg')
 print("Convertendo imagem em cinza")
+# O reconhecimento funciona com imagens em escala de preto e branco
 image_gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 
 print("Detectando Escalas a imagem em cinza")
+# Primeiro parametro: Imagem em preto e branco
+# Segundo parametro: Indica a reducao da imagem durante a verificacao.
+#                    Serve verificar fotos de perto, medio distancia  ou longe
+#                    1.3 eh um valor chave (Ainda nao sei porque)
+# Terceiro parametro: Numero de vizinhos cada candidato a face tem.
+#                     Quanto maior, mais vizinhos sao necessarios para que um local seja considerado uma face
 faces = face_classifier.detectMultiScale(image_gray, 1.3, 5)
 print("Formando retangulo na imagem")
 for (x,y,w,h) in faces:
