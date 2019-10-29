@@ -1,10 +1,13 @@
 import cv2
+import os
 class Recognizer:
 
     def __init__(self):
         # caminho com xml dos treinamentos do OpenCV. (Features de Haar)
-        # pathOpenCVClassifiers = "/home/renanj/.local/lib/python3.6/site-packages/cv2/data"
         self.pathOpenCVClassifiers = "C:/Users/Renan/AppData/Local/Programs/Python/Python36/Lib/site-packages/cv2/data"
+
+        if os.name == 'posix':
+            self.pathOpenCVClassifiers = "/home/renanj/.local/lib/python3.6/site-packages/cv2/data"
 
     def recognizeFace(self, image, rec_eyes = False):
         if isinstance(image, str):
