@@ -11,13 +11,13 @@ class Screen:
             cv2.waitKey(0)
             cv2.destroyAllWindows()
 
-    def recognizeFaceInVideo(self):
+    def detectFaceInVideo(self):
         captura = cv2.VideoCapture(0)
         while(1):
             ret, frame = captura.read()
             # if not ret:
             #     continue
-            frame = self.detector.recognizeFace(frame, True)
+            frame = self.detector.detectFace(frame, True)
             self.showImage(frame, 'Video', close_windows=False)
             k = cv2.waitKey(30) & 0xff
             if k == 27:

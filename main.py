@@ -14,7 +14,7 @@ while inp != '0':
     print('0 - Encerrar')
     inp = input()
     if inp == '1':
-        image = rec.recognizeFace('image-small.jpg', rec_eyes=True)
+        image = rec.detectFace('image-small.jpg', rec_eyes=True)
         if image is None:
             print("######################")
             print("Imagem não encontrada")
@@ -22,5 +22,5 @@ while inp != '0':
         else:
             screen.showImage(image, 'image')
     elif inp == '2':
-        screen.recognizeFaceInVideo()
+        screen.detectFaceInVideo()
 print("Acabou")

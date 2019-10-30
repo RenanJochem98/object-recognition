@@ -9,7 +9,7 @@ class Detector:
         if os.name == 'posix':
             self.pathOpenCVClassifiers = "/home/renanj/.local/lib/python3.6/site-packages/cv2/data"
 
-    def recognizeFace(self, image, rec_eyes = False):
+    def detectFace(self, image, rec_eyes = False):
         if isinstance(image, str):
             image = cv2.imread(image)
         if image is not None:
