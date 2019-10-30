@@ -5,10 +5,9 @@ class ImagesTool:
 
     def __init__(self):
         self.downloader = google_images_download.googleimagesdownload()
-        self.defaultImagesPaths = 'images'
 
-    def downloadImages(self, keywords , limit = 10):
-        arguments = {"keywords":keywords,"limit":limit, "output_directory": self.defaultImagesPaths, "save_source": 'tree'}
+    def downloadImages(self, keywords, output_directory, limit = 10):
+        arguments = {"keywords":keywords,"limit":limit, "output_directory": output_directory, "save_source": 'tree'}
         paths = self.downloader.download(arguments)
         # self.zip()
 
