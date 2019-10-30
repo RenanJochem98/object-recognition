@@ -1,6 +1,6 @@
 import cv2
 import os
-class Recognizer:
+class Detector:
 
     def __init__(self):
         # caminho com xml dos treinamentos do OpenCV. (Features de Haar)

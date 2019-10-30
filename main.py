@@ -1,10 +1,10 @@
 # unsplashLink = 'https://unsplash.com'
 # photoLink = 'https://unsplash.com/photos/X0xMB7cqKBI'
 
-from Recognizer import Recognizer
+from Detector import Detector
 from Screen import Screen
 
-rec = Recognizer()
+rec = Detector()
 screen = Screen()
 inp = None
 while inp != '0':

@@ -1,9 +1,9 @@
 import cv2
-from Recognizer import Recognizer
+from Detector import Detector
 class Screen:
 
     def __init__(self):
-        self.recognizer = Recognizer()
+        self.detector = Detector()
 
     def showImage(self, image, type, close_windows=True):
         cv2.imshow(type, image)
@@ -17,7 +17,7 @@ class Screen:
             ret, frame = captura.read()
             # if not ret:
             #     continue
-            frame = self.recognizer.recognizeFace(frame, True)
+            frame = self.detector.recognizeFace(frame, True)
             self.showImage(frame, 'Video', close_windows=False)
             k = cv2.waitKey(30) & 0xff
             if k == 27:
