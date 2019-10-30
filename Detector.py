@@ -4,10 +4,10 @@ class Detector:
 
     def __init__(self):
         # caminho com xml dos treinamentos do OpenCV. (Features de Haar)
-        self.pathOpenCVClassifiers = "C:/Users/Renan/AppData/Local/Programs/Python/Python36/Lib/site-packages/cv2/data"
-
-        if os.name == 'posix':
-            self.pathOpenCVClassifiers = "/home/renanj/.local/lib/python3.6/site-packages/cv2/data"
+        # self.pathOpenCVClassifiers = "C:/Users/Renan/AppData/Local/Programs/Python/Python36/Lib/site-packages/cv2/data"
+        # if os.name == 'posix':
+        #     self.pathOpenCVClassifiers = "/home/renanj/.local/lib/python3.6/site-packages/cv2/data"
+        self.pathOpenCVClassifiers = cv2.__path__[0] +"/data"
 
     def detectFace(self, image, rec_eyes = False):
         if isinstance(image, str):
