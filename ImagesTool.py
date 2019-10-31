@@ -3,6 +3,7 @@ from google_images_download import google_images_download
 # from zipfile import ZipFile
 import os
 import cv2
+import threading
 class ImagesTool:
 
     def __init__(self):
@@ -23,7 +24,30 @@ class ImagesTool:
            os.makedirs(pathResizedImages) #If not, create it
 
         dirImages = os.listdir(dir)
+        jobs = []
+        #
+        # len = len(dirImages)
+        # thr = abs(len/50)
 
+        thread = threading.Thread(target=self.resizeManyImages(dirImages[:50], dir, pathResizedImages))
+        jobs.append(thread)
+        thread = threading.Thread(target=self.resizeManyImages(dirImages[51:100], dir, pathResizedImages))
+        jobs.append(thread)
+        thread = threading.Thread(target=self.resizeManyImages(dirImages[100:150], dir, pathResizedImages))
+        jobs.append(thread)
+        thread = threading.Thread(target=self.resizeManyImages(dirImages[150:200], dir, pathResizedImages))
+        jobs.append(thread)
+        thread = threading.Thread(target=self.resizeManyImages(dirImages[250:300], dir, pathResizedImages))
+        jobs.append(thread)
+        thread = threading.Thread(target=self.resizeManyImages(dirImages[300:], dir, pathResizedImages))
+        jobs.append(thread)
+        for j in jobs:
+            j.start()
+        for j in jobs:
+            j.join()
+        # self.resizeManyImages(dirImages, dir, pathResizedImages)
+
+    def resizeManyImages(self, dirImages, dir, pathResizedImages):
         for image in dirImages:
             img=cv2.imread(dir+"/"+image)
             if img is not None:
