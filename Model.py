@@ -6,9 +6,9 @@ class Model:
         self.defaultImagesPath = 'images'
         self.limitImagesToModel = 5
 
-    def createModelImagesBase(self, keywords):
-        self.imageTool.downloadImages(keywords, self.defaultImagesPath, self.limitImagesToModel)
-        # define and resize images
+    def createModelImagesBase(self, modelThing):
+        self.imageTool.downloadImages(modelThing, self.defaultImagesPath, self.limitImagesToModel)
+        self.imageTool.resizeAllImagesInDir("images/"+modelThing)
         # verify if need change to scale gray
 
     def refineModelImagesBase(self):
