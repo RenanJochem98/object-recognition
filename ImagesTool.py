@@ -25,22 +25,33 @@ class ImagesTool:
 
         dirImages = os.listdir(dir)
         jobs = []
-        #
-        # len = len(dirImages)
-        # thr = abs(len/50)
+        leng = len(dirImages)
+        x = True
+        countStart = 0
+        countRange = 20
+        #rever
+        while x:
+            if countRange < leng:
+                thread = threading.Thread(target=self.resizeManyImages(dirImages[countStart:countRange], dir, pathResizedImages))
+                jobs.append(thread)
+                countStart = countRange+1
+                countRange += countRange
+            else:
+                thread = threading.Thread(target=self.resizeManyImages(dirImages[countStart:], dir, pathResizedImages))
+                x = False
+                break
 
-        thread = threading.Thread(target=self.resizeManyImages(dirImages[:50], dir, pathResizedImages))
-        jobs.append(thread)
-        thread = threading.Thread(target=self.resizeManyImages(dirImages[51:100], dir, pathResizedImages))
-        jobs.append(thread)
-        thread = threading.Thread(target=self.resizeManyImages(dirImages[100:150], dir, pathResizedImages))
-        jobs.append(thread)
-        thread = threading.Thread(target=self.resizeManyImages(dirImages[150:200], dir, pathResizedImages))
-        jobs.append(thread)
-        thread = threading.Thread(target=self.resizeManyImages(dirImages[250:300], dir, pathResizedImages))
-        jobs.append(thread)
-        thread = threading.Thread(target=self.resizeManyImages(dirImages[300:], dir, pathResizedImages))
-        jobs.append(thread)
+
+        # thread = threading.Thread(target=self.resizeManyImages(dirImages[51:100], dir, pathResizedImages))
+        # jobs.append(thread)
+        # thread = threading.Thread(target=self.resizeManyImages(dirImages[100:150], dir, pathResizedImages))
+        # jobs.append(thread)
+        # thread = threading.Thread(target=self.resizeManyImages(dirImages[150:200], dir, pathResizedImages))
+        # jobs.append(thread)
+        # thread = threading.Thread(target=self.resizeManyImages(dirImages[250:300], dir, pathResizedImages))
+        # jobs.append(thread)
+        # thread = threading.Thread(target=self.resizeManyImages(dirImages[300:], dir, pathResizedImages))
+        # jobs.append(thread)
         for j in jobs:
             j.start()
         for j in jobs:
