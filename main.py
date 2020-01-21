@@ -1,3 +1,5 @@
+# coding=utf-8
+
 # unsplashLink = 'https://unsplash.com'
 # photoLink = 'https://unsplash.com/photos/X0xMB7cqKBI'
 
