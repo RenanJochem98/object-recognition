@@ -1,8 +1,7 @@
 # object-recognition
 
 É necessário instalar o pip
-> sudo apt install pip
-
+> sudo apt install pip 
 É necessário instalar o pip3
 > sudo apt install pip3
 
